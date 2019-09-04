@@ -10,26 +10,41 @@
 
     <title></title>
   </head>
-  <body>
-        <ul class="nav nav-pills mt-3 ml-3">
-            <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="about">About Us</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="customers">Customers</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="contact">Contact Us</a>
-            </li>
-    
-        </ul>
-        <div class="contener">
-            @yield('content')
-            
+    <style>
+        .bg-purple {
+            background-color: #16438e;
+        }
+        .bg-customdark {
+            background-color: #123985;
+        }
+    </style>
+  <body class="bg-light">
+
+    <div class="navbar navbar-expand-md fixed-top navbar-dark bg-customdark">
+        <div class="container">
+            <ul class="nav nav-pills py-0 text-light">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/customers">Customers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/contact">Contact Us</a>
+                </li>
+            </ul>
         </div>
+    </div>
+
+
+    <div class="pt-5">
+
+        @yield('content')
+
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

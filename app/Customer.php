@@ -7,13 +7,39 @@ use Illuminate\Database\Eloquent\Model;
 class Customer extends Model
 {
     //
-    public function list(){
+    protected $guarded = [];
 
-        $customers = Customer::all();
-        
+    protected $attributes = [
+        'active' => 1,
+    ];
 
-        return view ('customer', [
-            'customers' => $customers,
-        ]);
+    public function scopeActive($query)
+    {
+
+        return $query->where('active', 1);
+    }
+
+    public function scopeInactive($query)
+    {
+
+        return $query->where('active', 0);
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+    public function getActiveAttribute($attribute)
+    {
+        return $this->activeOptions()[$attribute];
+    }
+    public function activeOptions()
+    {
+        return [
+            1 => 'Active',
+            0 => 'Inactive',
+            2 => 'In-Progress',
+        ];
     }
 }
